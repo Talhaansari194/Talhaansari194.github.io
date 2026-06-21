@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Mohd Talha Ansari — Data Scientist & AI/ML Engineer. B.S. Data Science, University of Toledo. Building GenAI pipelines, ML models, and analytics solutions."/>
+<meta name="keywords" content="Mohd Talha Ansari, Data Scientist, AI Engineer, Machine Learning, Python, SQL, LangChain, RAG, Power BI"/>
+<meta property="og:title" content="Mohd Talha Ansari"/>
+<meta property="og:description" content="Data Scientist & AI/ML Engineer — Building intelligent systems from data"/>
+<meta name="theme-color" content="#05080F"/>
+<title>Mohd Talha Ansari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg:      #05080F;
+  --bg2:     #0A0F1C;
+  --bg3:     #0F1628;
+  --gold:    #C9A84C;
+  --gold2:   #E8C96C;
+  --cyan:    #4ECDC4;
+  --purple:  #9B72CF;
+  --text:    #E2E8F4;
+  --muted:   #7A8599;
+  --border:  #1A2540;
+  --card:    #080D1A;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* STARS BG */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 75%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 90%, rgba(255,255,255,0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,0.2) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(5,8,15,0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+}
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative; z-index: 1;
+}
+
+.hero-scroll-hint {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  opacity: 0.7;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.0;
+  margin-bottom: 0.4rem;
+}
+
+.hero-title .first { color: var(--text); }
+.hero-title .last {
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-tagline {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.hero-venture {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid rgba(201,168,76,0.4);
+  padding: 0.7rem 2rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-venture::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(201,168,76,0.05);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.hero-venture:hover::before { transform: scaleX(1); }
+.hero-venture:hover { border-color: var(--gold); }
+
+/* DIVIDER */
+.rune-divider {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--border);
+  font-size: 1.2rem;
+  letter-spacing: 0.5rem;
+  position: relative; z-index: 1;
+}
+
+/* SECTION */
+.page-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  position: relative; z-index: 1;
+}
+
+.section-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  opacity: 0.8;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 3rem;
+}
+
+/* CHARACTER SHEET */
+.char-sheet {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.char-sheet::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--purple), var(--cyan));
+}
+
+.char-info h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.char-class {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.char-level {
+  display: inline-block;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.char-bio {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.char-edu {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--cyan);
+}
+
+.char-stats { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.stat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-name {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-bar-bg {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+  transition: width 1.2s ease;
+  width: 0%;
+}
+
+.skill-chips {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-top: 1.5rem;
+  grid-column: 1 / -1;
+}
+
+.chip {
+  padding: 0.3rem 0.75rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: 'Fira Code', monospace;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.chip:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ACHIEVEMENTS */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.achievement {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.2s;
+}
+
+.achievement:hover { border-color: rgba(201,168,76,0.4); }
+
+.ach-rank {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  opacity: 0.8;
+  min-width: 2rem;
+}
+
+.ach-text {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.ach-label {
+  font-size: 0.72rem;
+  color: var(--gold);
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 0.2rem;
+}
+
+/* JOURNEY / EXPERIENCE */
+.journey-line {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.journey-line::before {
+  content: '';
+  position: absolute;
+  left: 0.45rem; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--purple) 50%, transparent 100%);
+}
+
+.journey-stop {
+  position: relative;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.5s ease;
+}
+
+.journey-stop.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.journey-stop::before {
+  content: attr(data-level);
+  position: absolute;
+  left: -2.5rem;
+  top: 0.2rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: var(--bg3);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.6rem;
+  color: var(--gold);
+  text-align: center;
+  line-height: 1;
+}
+
+.stop-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.stop-card:hover {
+  border-color: rgba(201,168,76,0.35);
+  transform: translateX(4px);
+}
+
+.stop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.stop-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.stop-date {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  background: var(--bg3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.stop-company {
+  font-size: 0.82rem;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.stop-desc {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.stop-tech {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+}
+
+.t-pill {
+  padding: 0.2rem 0.6rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-family: 'Fira Code', monospace;
+}
+
+/* PROJECTS - QUEST LOG */
+.quest-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.quest-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.quest-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+
+.quest-num {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: rgba(201,168,76,0.2);
+  line-height: 1;
+  min-width: 2.5rem;
+}
+
+.quest-type {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.quest-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.quest-desc {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.quest-link {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--gold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: gap 0.2s;
+  margin-top: 0.5rem;
+}
+
+.quest-link:hover { gap: 0.6rem; }
+
+/* SIDE QUESTS */
+.side-quests {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.side-quest {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  transition: border-color 0.2s;
+}
+
+.side-quest:hover { border-color: rgba(155,114,207,0.4); }
+
+.sq-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: var(--purple);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sq-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.sq-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* TREASURE / CONNECT */
+.treasure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.loot-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: all 0.2s;
+}
+
+.loot-card:hover {
+  border-color: rgba(201,168,76,0.5);
+  transform: translateY(-2px);
+}
+
+.loot-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.loot-action {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: var(--gold);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: 'Fira Code', monospace;
+  position: relative; z-index: 1;
+}
+
+@media (max-width: 640px) {
+  nav { padding: 0.9rem 1.25rem; }
+  .nav-links { gap: 1rem; }
+  .page-section { padding: 3.5rem 1.25rem; }
+  .char-sheet { grid-template-columns: 1fr; }
+  .char-photo-wrap { grid-row: auto; min-height: 260px; }
+  .quest-card { grid-template-columns: 1fr; }
+  .quest-num { font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Talha Ansari</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Journey</a></li>
+    <li><a href="#projects">Quests</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-scroll-hint">↓ scroll to begin ↓</div>
+  <div class="hero-tagline">Data Scientist · AI/ML Engineer · Builder</div>
+  <h1 class="hero-title">
+    <span class="first">Mohd Talha</span><br/>
+    <span class="last">Ansari</span>
+  </h1>
+  <p class="hero-desc">
+    I turn data into decisions and ideas into intelligent systems.<br/>
+    Specializing in GenAI, ML pipelines, and analytics engineering.
+  </p>
+  <a href="#about" class="hero-venture">venture forth ↓</a>
+</section>
+
+<div class="rune-divider">✦ ✦ ✦</div>
+
+<!-- ABOUT / CHARACTER SHEET -->
+<section class="page-section" id="about">
+  <div class="section-eyebrow">About</div>
+  <h2 class="section-title">Character Sheet</h2>
+  <p class="section-subtitle">stats, skills, and origin story</p>
+
+  <div class="char-sheet">
+    <div class="char-photo-wrap" style="grid-row: 1 / 3; position:relative; border-radius:10px; overflow:hidden; min-height:280px;">
+      <img src="profile.jpg" alt="Mohd Talha Ansari"
+        style="width:100%; height:100%; object-fit:cover; display:block; border-radius:10px;"/>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:1rem; background:linear-gradient(transparent, rgba(5,8,15,0.95));">
+        <div style="font-family:'Cinzel',serif; font-size:1rem; color:var(--text); font-weight:600;">Mohd Talha Ansari</div>
+        <div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em;">Data Scientist</div>
+        <div style="font-size:0.7rem; color:var(--gold); font-family:'Fira Code',monospace; margin-top:0.2rem;">Lv. 22</div>
+      </div>
+    </div>
+    <div class="char-info">
+      <div class="char-class" style="margin-top:0.25rem;">Data Scientist · Analytics Engineer</div>
+      
+      <p class="char-bio">
+        Hi, I'm Talha — a Data Science graduate from the University of Toledo building intelligent systems at the intersection of AI, data engineering, and analytics. I enjoy solving hard problems with data, building GenAI pipelines that actually work in production, and turning messy datasets into clean, actionable insights.
+      </p>
+      <p class="char-bio">
+        I've built multi-agent GenAI platforms with LangChain and AutoGen, engineered end-to-end data pipelines across AWS, Azure, and GCP, and shipped ML models from research to production.
+      </p>
+      <div class="char-edu">🎓 B.S. Data Science · Minor CS · GPA 3.4 · Dean's List<br/>University of Toledo · 2022–2026</div>
+    </div>
+
+    <div class="char-stats">
+      <div class="stat-row">
+        <div class="stat-name"><span>Python / SQL</span><span>95</span></div>
+        <div class="stat-bar-bg"><div class="stat-bar-fill" data-width="95"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-name"><span>Machine Learning</span><span>88</span></div>
+        <div class="stat-bar-bg"><div class="stat-bar-fill" data-width="88"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-name"><span>GenAI / LLM Engineering</span><span>92</span></div>
+        <div class="stat-bar-bg"><div class="stat-bar-fill" data-width="92"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-name"><span>Data Engineering</span><span>85</span></div>
+        <div class="stat-bar-bg"><div class="stat-bar-fill" data-width="85"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-name"><span>Power BI / Tableau</span><span>90</span></div>
+        <div class="stat-bar-bg"><div class="stat-bar-fill" data-width="90"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-name"><span>R / SAS / MATLAB</span><span>82</span></div>
+        <div class="stat-bar-bg"><div class="stat-bar-fill" data-width="82"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-name"><span>Cloud (AWS · Azure · GCP)</span><span>80</span></div>
+        <div class="stat-bar-bg"><div class="stat-bar-fill" data-width="80"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-chips" style="grid-column: 1 / -1;">
+      <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span>
+      <span class="chip">SAS</span><span class="chip">LangChain</span><span class="chip">AutoGen</span>
+      <span class="chip">CrewAI</span><span class="chip">RAG</span><span class="chip">FAISS</span>
+      <span class="chip">Snowflake</span><span class="chip">dbt</span><span class="chip">Spark</span>
+      <span class="chip">Airflow</span><span class="chip">Power BI</span><span class="chip">Tableau</span>
+      <span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">Azure</span>
+      <span class="chip">GCP</span><span class="chip">Git</span>
+      
+    </div>
+  </div>
+</section>
+
+<div class="rune-divider">✦ ✦ ✦</div>
+
+<!-- ACHIEVEMENTS -->
+<section class="page-section">
+  <div class="section-eyebrow">Milestones</div>
+  <h2 class="section-title">Achievements Unlocked</h2>
+  <p class="section-subtitle">badges earned along the way</p>
+
+  <div class="achievements-grid">
+    <div class="achievement">
+      <div class="ach-rank">3.4</div>
+      <div class="ach-text">
+        <div class="ach-label">GPA · Dean's List</div>
+        University of Toledo · B.S. Data Science
+      </div>
+    </div>
+    <div class="achievement">
+      <div class="ach-rank">40%</div>
+      <div class="ach-text">
+        <div class="ach-label">Efficiency Gained</div>
+        Reduced incident resolution time at UToledo health system
+      </div>
+    </div>
+    <div class="achievement">
+      <div class="ach-rank">20%</div>
+      <div class="ach-text">
+        <div class="ach-label">Ops Improvement</div>
+        AI workflow automation at Aurat Aroma LLC
+      </div>
+    </div>
+    <div class="achievement">
+      <div class="ach-rank">1M+</div>
+      <div class="ach-text">
+        <div class="ach-label">Records Analyzed</div>
+        Large-scale data processing across projects
+      </div>
+    </div>
+    <div class="achievement">
+      <div class="ach-rank">10+</div>
+      <div class="ach-text">
+        <div class="ach-label">Certifications</div>
+        Microsoft, Google, BCG, Deloitte & more
+      </div>
+    </div>
+    <div class="achievement">
+      <div class="ach-rank">6</div>
+      <div class="ach-text">
+        <div class="ach-label">ML Models</div>
+        Deployed & evaluated in salary prediction research
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rune-divider">✦ ✦ ✦</div>
+
+<!-- EXPERIENCE / JOURNEY -->
+<section class="page-section" id="experience">
+  <div class="section-eyebrow">Journey So Far</div>
+  <h2 class="section-title">Experience</h2>
+  <p class="section-subtitle">every stop, a story. every role, a relic.</p>
+
+  <div class="journey-line">
+
+    <div class="journey-stop" data-level="">
+      <div class="stop-card">
+        <div class="stop-header">
+          <div class="stop-title">AI/ML Engineer – GenAI & Digital Transformation</div>
+          <div class="stop-date">Jun 2025 – Dec 2025</div>
+        </div>
+        <div class="stop-company">Aurat Aroma LLC · Louisville, KY · Contract 1099</div>
+        <p class="stop-desc">
+          Designed and built production multi-agent GenAI platforms using LangChain, LangGraph, AutoGen, and CrewAI with RAG pipelines and vector databases. Built ETL/ELT pipelines processing millions of records on AWS/Azure/GCP. Developed Power BI and Tableau dashboards tracking 10+ KPIs. Implemented AI-driven workflow automation reducing operational effort by ~20%.
+        </p>
+        <div class="stop-tech">
+          <span class="t-pill">LangChain</span><span class="t-pill">AutoGen</span><span class="t-pill">CrewAI</span>
+          <span class="t-pill">RAG · FAISS</span><span class="t-pill">Python</span><span class="t-pill">PySpark</span>
+          <span class="t-pill">AWS/Azure/GCP</span><span class="t-pill">Power BI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-stop" data-level="">
+      <div class="stop-card">
+        <div class="stop-header">
+          <div class="stop-title">Desktop Engineer</div>
+          <div class="stop-date">Aug 2024 – Apr 2026</div>
+        </div>
+        <div class="stop-company">University of Toledo · Toledo, OH</div>
+        <p class="stop-desc">
+          Managed 200+ enterprise endpoints across a university health system including EHR/EMR (Epic), PACS/AGFA, PeopleSoft, and HL7/FHIR interfaces. Analyzed 100+ monthly datasets using Python, R, SAS, and SQL. Built Power BI/Tableau dashboards for IT leadership. Optimized ServiceNow workflows reducing incident resolution time by 40%.
+        </p>
+        <div class="stop-tech">
+          <span class="t-pill">Python</span><span class="t-pill">R</span><span class="t-pill">SAS</span>
+          <span class="t-pill">SQL</span>
+          <span class="t-pill">ServiceNow</span><span class="t-pill">Tableau</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-stop" data-level="">
+      <div class="stop-card" style="border-style: dashed; opacity: 0.6;">
+        <div class="stop-title" style="color: var(--muted); font-style: italic;">What's next?</div>
+        <div class="stop-company">Your company name here · 2026</div>
+        <p class="stop-desc">The next chapter is being written. Stay tuned.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="rune-divider">✦ ✦ ✦</div>
+
+<!-- PROJECTS / QUEST LOG -->
+<section class="page-section" id="projects">
+  <div class="section-eyebrow">Quest Log</div>
+  <h2 class="section-title">Projects</h2>
+  <p class="section-subtitle">legendary encounters conquered, each worth remembering</p>
+
+  <div class="quest-list">
+
+    <div class="quest-card">
+      <div class="quest-num">I</div>
+      <div>
+        <div class="quest-type">AI Platform · Multi-Agent</div>
+        <div class="quest-title">Synthetic Olfactory Engine</div>
+        <p class="quest-desc">Production multi-agent AI platform using LangChain, LangGraph, AutoGen, CrewAI, and MCP servers with RAG pipelines (FAISS, Pinecone), knowledge graphs, and n8n orchestration for autonomous enterprise task execution.</p>
+        <div class="stop-tech" style="margin-bottom:0.75rem;">
+          <span class="t-pill">LangChain</span><span class="t-pill">AutoGen</span><span class="t-pill">RAG</span><span class="t-pill">n8n</span><span class="t-pill">MCP</span>
+        </div>
+        <a href="https://github.com/Talhaansari194" class="quest-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="quest-card">
+      <div class="quest-num">II</div>
+      <div>
+        <div class="quest-type">Machine Learning · Research</div>
+        <div class="quest-title">Salary Prediction ML Research</div>
+        <p class="quest-desc">Trained and evaluated 6 ML models (Linear, Ridge, Lasso, KNN, Random Forest, Gradient Boosting) on 93,000+ records with Optuna Bayesian hyperparameter optimization. Random Forest achieved R²=0.204. Published as structured research brief with policy recommendations.</p>
+        <div class="stop-tech" style="margin-bottom:0.75rem;">
+          <span class="t-pill">Scikit-learn</span><span class="t-pill">Optuna</span><span class="t-pill">Python</span><span class="t-pill">Pandas</span>
+        </div>
+        <a href="https://github.com/Talhaansari194/salary-prediction-ml" class="quest-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="quest-card">
+      <div class="quest-num">III</div>
+      <div>
+        <div class="quest-type">NLP · Behavioral Research</div>
+        <div class="quest-title">Cognitive Twin — Neuromorphic Profiling</div>
+        <p class="quest-desc">5-phase AI pipeline modeling human neuro-cognitive profiles from psychographic survey data across amygdala, hippocampus, and hypothalamus vectors. Integrates TextBlob NLP sentiment analysis, scikit-learn vector similarity indexing, and a real-time Streamlit visualization GUI.</p>
+        <div class="stop-tech" style="margin-bottom:0.75rem;">
+          <span class="t-pill">NLP</span><span class="t-pill">TextBlob</span><span class="t-pill">scikit-learn</span><span class="t-pill">Streamlit</span>
+        </div>
+        <a href="https://github.com/Talhaansari194/cognitive-twin-api" class="quest-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="quest-card">
+      <div class="quest-num">IV</div>
+      <div>
+        <div class="quest-type">AI Agent · Analytics</div>
+        <div class="quest-title">NBA Analytics AI Agent</div>
+        <p class="quest-desc">LLM-powered analytics agent using LangChain tools, nba_api, Python (Pandas, Matplotlib), and prompt engineering enabling natural language querying of structured basketball data with automated statistical summaries and visualizations.</p>
+        <div class="stop-tech" style="margin-bottom:0.75rem;">
+          <span class="t-pill">LangChain</span><span class="t-pill">nba_api</span><span class="t-pill">Pandas</span><span class="t-pill">Matplotlib</span>
+        </div>
+        <a href="https://github.com/Talhaansari194" class="quest-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDE QUESTS -->
+  <div style="margin-top: 3rem;">
+    <div class="section-eyebrow" style="margin-bottom:1rem;">Side Quests</div>
+    <div class="side-quests">
+
+      <div class="side-quest">
+        <div class="sq-label">Side Quest</div>
+        <div class="sq-title">Bitcoin Price Analysis</div>
+        <p class="sq-desc">Analyzed 100K+ financial transactions using SAS, Excel, and regression (R²=0.75). Executive Power BI dashboard for data-driven decision-making.</p>
+      </div>
+
+      <div class="side-quest">
+        <div class="sq-label">Side Quest</div>
+        <div class="sq-title">GenAI Workflow Automation</div>
+        <p class="sq-desc">AI-driven automation using Python, ChatGPT API, and prompt engineering. Reusable prompt libraries reducing manual effort at scale.</p>
+      </div>
+
+      <div class="side-quest">
+        <div class="sq-label">Side Quest</div>
+        <div class="sq-title">ETL Pipeline Automation</div>
+        <p class="sq-desc">End-to-end data pipeline in Python and SQL with Power BI KPI reporting. Snowflake + dbt-style workflows for analytics-ready datasets.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="rune-divider">✦ ✦ ✦</div>
+
+<!-- CONTACT / TREASURE -->
+<section class="page-section" id="contact">
+  <div class="section-eyebrow">Treasure Found</div>
+  <h2 class="section-title">Let's Connect</h2>
+  <p class="section-subtitle">take what you need, adventurer</p>
+
+  <div class="treasure-grid">
+    <a href="https://talhaansari194.github.io/resume.pdf" class="loot-card" target="_blank">
+      <div class="loot-label">Resume</div>
+      <div class="loot-action">Loot →</div>
+    </a>
+    <a href="https://linkedin.com/in/ansaritalhamohd" class="loot-card" target="_blank">
+      <div class="loot-label">LinkedIn</div>
+      <div class="loot-action">Connect →</div>
+    </a>
+    <a href="mailto:mohdtalhansari123@gmail.com" class="loot-card">
+      <div class="loot-label">Email</div>
+      <div class="loot-action">Message →</div>
+    </a>
+    <a href="https://github.com/Talhaansari194" class="loot-card" target="_blank">
+      <div class="loot-label">GitHub</div>
+      <div class="loot-action">Explore →</div>
+    </a>
+    <a href="tel:+14197877630" class="loot-card">
+      <div class="loot-label">Phone</div>
+      <div class="loot-action">(+1) 419-787-7630</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>the adventure never ends.</p>
+  <p style="margin-top:0.5rem;">© 2026 Mohd Talha Ansari · talhaansari194.github.io</p>
+</footer>
+
+<script>
+// Scroll fade-in for journey stops
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 100);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.journey-stop').forEach(el => observer.observe(el));
+
+// Animate stat bars on scroll
+const barObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.stat-bar-fill').forEach(bar => {
+        const w = bar.getAttribute('data-width');
+        setTimeout(() => bar.style.width = w + '%', 200);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+const charSheet = document.querySelector('.char-sheet');
+if (charSheet) barObserver.observe(charSheet);
+</script>
+
+</body>
+</html>
